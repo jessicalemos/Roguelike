@@ -1,0 +1,104 @@
+\hypertarget{structestado}{\section{estado Struct Reference}
+\label{structestado}\index{estado@{estado}}
+}
+
+
+Estrutura que armazena o estado do jogo.  
+
+
+
+
+{\ttfamily \#include $<$estado.\+h$>$}
+
+
+
+Collaboration diagram for estado\+:
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{structestado_a36d0b93f42177acd9271d9d088814a8b}{existe}
+\item 
+char \hyperlink{structestado_a312d7aee47aeea05c30f01ff16fa8679}{score}
+\item 
+char \hyperlink{structestado_a4d74973997bfe99d6d99b1f5ffeab68e}{automatico}
+\item 
+char \hyperlink{structestado_a5ffbd63e69caa4229f7541d67b89138b}{help}
+\item 
+char \hyperlink{structestado_ab1ce35a6c6d241c38b19f8f3d56484e4}{can}
+\item 
+char \hyperlink{structestado_a7254bdd4f0f4001a6143eb5b1220f62c}{matar}
+\item 
+char \hyperlink{structestado_ae8ee3c5f52f5342c47dcaad66e31bc58}{acao}
+\item 
+\hyperlink{estado_8h_a55b3f4b56938eeb8fa5e8f9c07baf1b0}{P\+O\+S\+I\+C\+A\+O} \hyperlink{structestado_abf55d0d40aafdd6829efbc8265b4f724}{jog}
+\item 
+\hyperlink{estado_8h_a55b3f4b56938eeb8fa5e8f9c07baf1b0}{P\+O\+S\+I\+C\+A\+O} \hyperlink{structestado_a426cd99284bc16bd15156a80ff72529c}{ajuda}
+\item 
+\hyperlink{estado_8h_a55b3f4b56938eeb8fa5e8f9c07baf1b0}{P\+O\+S\+I\+C\+A\+O} \hyperlink{structestado_a263fcce8335baa7ccdff318a22816891}{gol}
+\item 
+char \hyperlink{structestado_a6fbc4a80c4f371036f264ecfe27e5f9e}{num\+\_\+inimigos}
+\item 
+char \hyperlink{structestado_ac1a8a541e2301189833c6f713c416063}{num\+\_\+obstaculos}
+\item 
+char \hyperlink{structestado_a620f2f81ebfe4cba1d6e44b09a1762f7}{nivel}
+\item 
+\hyperlink{estado_8h_a55b3f4b56938eeb8fa5e8f9c07baf1b0}{P\+O\+S\+I\+C\+A\+O} \hyperlink{structestado_a8f7d47deb337ae082beab6a574ace9e3}{inimigo} \mbox{[}\hyperlink{estado_8h_aa97e6cbfdd94711688f1176cb8dd916a}{M\+A\+X\+\_\+\+I\+N\+I\+M\+I\+G\+O\+S}\mbox{]}
+\item 
+\hyperlink{estado_8h_a55b3f4b56938eeb8fa5e8f9c07baf1b0}{P\+O\+S\+I\+C\+A\+O} \hyperlink{structestado_a970dc20c6687acb17c3f08c06edbed4f}{obstaculo} \mbox{[}\hyperlink{estado_8h_ac574e2817856ecc9a890d2d47cb9d783}{M\+A\+X\+\_\+\+O\+B\+S\+T\+A\+C\+U\+L\+O\+S}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estrutura que armazena o estado do jogo. 
+
+\subsection{Member Data Documentation}
+\hypertarget{structestado_ae8ee3c5f52f5342c47dcaad66e31bc58}{\index{estado@{estado}!acao@{acao}}
+\index{acao@{acao}!estado@{estado}}
+\subsubsection[{acao}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::acao}}\label{structestado_ae8ee3c5f52f5342c47dcaad66e31bc58}
+ação 0-\/jogo 1-\/acabei nível 2-\/novo jogo \hypertarget{structestado_a426cd99284bc16bd15156a80ff72529c}{\index{estado@{estado}!ajuda@{ajuda}}
+\index{ajuda@{ajuda}!estado@{estado}}
+\subsubsection[{ajuda}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+S\+I\+C\+A\+O} estado\+::ajuda}}\label{structestado_a426cd99284bc16bd15156a80ff72529c}
+A posição da ajuda \hypertarget{structestado_a4d74973997bfe99d6d99b1f5ffeab68e}{\index{estado@{estado}!automatico@{automatico}}
+\index{automatico@{automatico}!estado@{estado}}
+\subsubsection[{automatico}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::automatico}}\label{structestado_a4d74973997bfe99d6d99b1f5ffeab68e}
+1-\/automático 0-\/não automático \hypertarget{structestado_ab1ce35a6c6d241c38b19f8f3d56484e4}{\index{estado@{estado}!can@{can}}
+\index{can@{can}!estado@{estado}}
+\subsubsection[{can}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::can}}\label{structestado_ab1ce35a6c6d241c38b19f8f3d56484e4}
+usar ajuda 0-\/não pode 1-\/pode poção 2-\/pode explosão 3-\/pode novo 4-\/pode faca \hypertarget{structestado_a36d0b93f42177acd9271d9d088814a8b}{\index{estado@{estado}!existe@{existe}}
+\index{existe@{existe}!estado@{estado}}
+\subsubsection[{existe}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::existe}}\label{structestado_a36d0b93f42177acd9271d9d088814a8b}
+1-\/ é permitido imprimir uma ajuda no tabuleiro 0-\/ não é \hypertarget{structestado_a263fcce8335baa7ccdff318a22816891}{\index{estado@{estado}!gol@{gol}}
+\index{gol@{gol}!estado@{estado}}
+\subsubsection[{gol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+S\+I\+C\+A\+O} estado\+::gol}}\label{structestado_a263fcce8335baa7ccdff318a22816891}
+A posição da porta objetivo \hypertarget{structestado_a5ffbd63e69caa4229f7541d67b89138b}{\index{estado@{estado}!help@{help}}
+\index{help@{help}!estado@{estado}}
+\subsubsection[{help}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::help}}\label{structestado_a5ffbd63e69caa4229f7541d67b89138b}
+ajuda 0-\/sem ajudas 1-\/pathfinding 2-\/iluminar casas atacadas por todos os monstros 3-\/iluminar casas atacadas por um determinado mostro 4-\/refresh do jogo 5-\/salto \hypertarget{structestado_a8f7d47deb337ae082beab6a574ace9e3}{\index{estado@{estado}!inimigo@{inimigo}}
+\index{inimigo@{inimigo}!estado@{estado}}
+\subsubsection[{inimigo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+S\+I\+C\+A\+O} estado\+::inimigo\mbox{[}{\bf M\+A\+X\+\_\+\+I\+N\+I\+M\+I\+G\+O\+S}\mbox{]}}}\label{structestado_a8f7d47deb337ae082beab6a574ace9e3}
+Array com a posição dos inimigos \hypertarget{structestado_abf55d0d40aafdd6829efbc8265b4f724}{\index{estado@{estado}!jog@{jog}}
+\index{jog@{jog}!estado@{estado}}
+\subsubsection[{jog}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+S\+I\+C\+A\+O} estado\+::jog}}\label{structestado_abf55d0d40aafdd6829efbc8265b4f724}
+A posição do jogador \hypertarget{structestado_a7254bdd4f0f4001a6143eb5b1220f62c}{\index{estado@{estado}!matar@{matar}}
+\index{matar@{matar}!estado@{estado}}
+\subsubsection[{matar}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::matar}}\label{structestado_a7254bdd4f0f4001a6143eb5b1220f62c}
+formas de matar inimigo 0-\/sem 1-\/mata poção 2-\/mata bomba 3-\/mata faca \hypertarget{structestado_a620f2f81ebfe4cba1d6e44b09a1762f7}{\index{estado@{estado}!nivel@{nivel}}
+\index{nivel@{nivel}!estado@{estado}}
+\subsubsection[{nivel}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::nivel}}\label{structestado_a620f2f81ebfe4cba1d6e44b09a1762f7}
+nº do nível \hypertarget{structestado_a6fbc4a80c4f371036f264ecfe27e5f9e}{\index{estado@{estado}!num\+\_\+inimigos@{num\+\_\+inimigos}}
+\index{num\+\_\+inimigos@{num\+\_\+inimigos}!estado@{estado}}
+\subsubsection[{num\+\_\+inimigos}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::num\+\_\+inimigos}}\label{structestado_a6fbc4a80c4f371036f264ecfe27e5f9e}
+O nº de inimigos \hypertarget{structestado_ac1a8a541e2301189833c6f713c416063}{\index{estado@{estado}!num\+\_\+obstaculos@{num\+\_\+obstaculos}}
+\index{num\+\_\+obstaculos@{num\+\_\+obstaculos}!estado@{estado}}
+\subsubsection[{num\+\_\+obstaculos}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::num\+\_\+obstaculos}}\label{structestado_ac1a8a541e2301189833c6f713c416063}
+O nº de obstáculos \hypertarget{structestado_a970dc20c6687acb17c3f08c06edbed4f}{\index{estado@{estado}!obstaculo@{obstaculo}}
+\index{obstaculo@{obstaculo}!estado@{estado}}
+\subsubsection[{obstaculo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+S\+I\+C\+A\+O} estado\+::obstaculo\mbox{[}{\bf M\+A\+X\+\_\+\+O\+B\+S\+T\+A\+C\+U\+L\+O\+S}\mbox{]}}}\label{structestado_a970dc20c6687acb17c3f08c06edbed4f}
+Array com a posição dos obstáculos \hypertarget{structestado_a312d7aee47aeea05c30f01ff16fa8679}{\index{estado@{estado}!score@{score}}
+\index{score@{score}!estado@{estado}}
+\subsubsection[{score}]{\setlength{\rightskip}{0pt plus 5cm}char estado\+::score}}\label{structestado_a312d7aee47aeea05c30f01ff16fa8679}
+score 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{estado_8h}{estado.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,812 @@
+\hypertarget{parser_8c}{\section{parser.\+c File Reference}
+\label{parser_8c}\index{parser.\+c@{parser.\+c}}
+}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estado.\+h\char`\"{}}\\*
+Include dependency graph for parser.\+c\+:
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} \hyperlink{parser_8c_a19be29f3769d4d77b3af18d39a40735a}{inicializar} (int n)
+\begin{DoxyCompactList}\small\item\em Função que inicializa o jogo. Esta define as posicões iniciais do jogador, do objetivo, dos inimigos, dos obstáculos e das ajudas, sendo que estes três últimos são gerados aleatoriamente, para obtermos tabuleiros diferentes. Também fica estipulado que todas as restantes características se iniciam a zero, dado que são alteradas pelo decorrer do jogo. É importante realçar o facto de o número de obstáculos e inimigos aumentar com o nível, que corresponde ao parâmetro n. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_a872ca970e87c761b084ab705d1deb682}{scr} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para obter o score. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_a17b1f13fa1af0de7778f02a5e7409053}{valido} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int a, int b)
+\begin{DoxyCompactList}\small\item\em Função que permite verificar se a casa do tabuleiro não está ocupada, de modo a poder lá colocar um inimigo ou um obstáculo ou uma ajuda. O movimento é considerado válido se a posição para a qual o jogador pretende deslocar-\/se não estiver ocupada por um inimigo, um obstáculo, o objetivo ou corresponder ao posicionamento atual do jogador. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_afb9bc83fb6983d7de2d4243d726cae93}{valido2} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int a, int b)
+\begin{DoxyCompactList}\small\item\em Função que permite verificar se o jogador se pode movimentar. O movimento é considerado válido se a posição para a qual o jogador pretende deslocar-\/se não estiver ocupada por um inimigo, um obstáculo, ou corresponder ao posicionamento atual do jogador. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_af763247ed37f68bd99cf0c0e2bc70abf}{valido3} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int a, int b)
+\begin{DoxyCompactList}\small\item\em Função que conclui se o movimento dos inimigos é possível. É considerado realizável caso na posição para onde pretende movimentar-\/se não se encontre um obstáculo, o jogador, o objetivo, uma ajuda ou um inimigo. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_a0d226da7c83bdef361e87cdaffdd758e}{valido4} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int dx, int dy)
+\begin{DoxyCompactList}\small\item\em Função que apura se o deslocamento do jogador é possível e também se nenhum inimigo se irá mover para o mesmo local. É admissível caso não pretenda deslocar-\/se para um local onde se encontre um inimigo, um obstáculo, uma ajuda, o objetivo ou o um inimgo pretenda movimentar-\/se para a mesma casa. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a0fa7090bb59d0e16788420bdfdb8644c}{print\+\_\+square} (int X, int Y, int tam)
+\begin{DoxyCompactList}\small\item\em Função para imprimir os quadrados do tabuleiro do jogo. \end{DoxyCompactList}\item 
+\hypertarget{parser_8c_a6f31a24fe416c9ce9259ce11ea23a1f1}{void \hyperlink{parser_8c_a6f31a24fe416c9ce9259ce11ea23a1f1}{print\+\_\+board} ()}\label{parser_8c_a6f31a24fe416c9ce9259ce11ea23a1f1}
+
+\begin{DoxyCompactList}\small\item\em Função para imprimir o tabuleiro do jogo. Tal é possível através da impressão de todos os quadrados por cada linha. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_abfff3bbb47728568bedc2a7ba3d2146e}{print\+\_\+image} (int x, int y, int tam, char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Função para imprimir as imagens. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a3e6d62f9e963e55d5ba7c3339c232fae}{print\+\_\+goal} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir a porta de saída que dá acesso ao nível seguinte. \end{DoxyCompactList}\item 
+\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} \hyperlink{parser_8c_aa8c33be36f06248ba046afc6f84ea9de}{move\+\_\+monster} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para mover os inimigos. O movimento dos inimigos segue a seguinte estratégia\+: caso estes se encontrem na linha do objetivo estes deslocam-\/se no sentido do queijo; sempre que estejam no canto superior esquerdo efetuam o movimento diagonal no sentido do queijo, no entanto, apenas iniciam o deslocamento quando o jogador se encontra cinco linhas acima da posição inicial; na hipótese de o inimigo se apresentar no canto superior direito e o jogador a cinco linhas acima do início efetuam o movimento diagonal no sentido do queijo; se estiverem na última linha do tabuleiro e o jogador na parte inferior do tabuleiro iram mover-\/se na diagonal no sentido da coluna do jogador; quando os inimigos estão no canto inferior esquerdo e o jogador nas ultimas cinco linhas, dirigem-\/se na diagonal no sentido da coluna do rato; por último, estes deslocam-\/se na diagonal no sentido da coluna do jogador. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_a559acd5a7f86d1f63a42ca54e7e0e648}{ocupado} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int a, int b)
+\begin{DoxyCompactList}\small\item\em Função que vê se nas coordenadas para onde o jogador pretende ir se encontra um inimigo. \end{DoxyCompactList}\item 
+\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} \hyperlink{parser_8c_a6edfe79de74b805e25fd125ae324bb71}{mata\+\_\+monster} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int a, int b)
+\begin{DoxyCompactList}\small\item\em Função que mata os monstros sem recorrer a ajudas. Esta percorre o array dos inimigos e verifica se algum se encontra na posição para onde o rato pretende ir. Se tal se suceder, irá eliminá-\/lo do array e consequentemente diminuir o número de inimigos existentes. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_ac421ba515c251c7a23fdb86dcc75ca31}{path} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para fazer o pathfinding. A estratégia utilizada para mover o jogador segundo o melhor caminho é a seguinte\+: inicialmente, verifica-\/se se é possível o movimento de duas casas para cima e na hipótese de o ser, averigua-\/se se há inimigos nesse local, se houver é necessário eliminá-\/lo. Caso não haja, efetua-\/se o movimento do jogador e dos inimigos. Caso não seja possível o movimento, implementamos a estratégia anterior para os seguintes deslocamentos\+: vertical de uma casa, diagonal de uma casa no sentido da esquerda, diagonal de uma casa no sentido da direita, uma casa horizontal para a direita e uma casa na horizontal para a esquerda, por esta ordem. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_ab78ac1791c6f9e5c7fb142aa8b2387c4}{print\+\_\+pathfinding} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão do pathfinding. Este botão faz com que seja ativada a ajuda do pathfinding. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_aa0ba009f7c1ef0f22877ef162aadbfb5}{print\+\_\+button\+\_\+pocao} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão da poção. Este botão faz com que seja ativada a possibilidade de matar com a poção. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_aeb844d48100320909072ca2ef9369af4}{print\+\_\+button\+\_\+auto} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão do jogador automático. Este botão faz com que seja ativada a ajuda do jagador automático. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a21f0b301a92340018151717d19bd6f71}{print\+\_\+button\+\_\+faca} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão da faca. Este botão faz com que seja ativada a possibilidade de matar com a faca. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a0504c2d1f0c21f466587c2b724604944}{print\+\_\+button\+\_\+explosao} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão da bomba. Este botão faz com que seja ativada a possibilidade de matar com a bomba. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a5d81cb91908a6c15e66f865ec4c6c265}{print\+\_\+button\+\_\+monstro} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão de iluminar as casas atacadas pelos monstros. Este botão faz com que seja ativada a ajuda de iluminar as casas atacadas pelos monstros. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a7be73abad1beb74aa02254251f478bbc}{print\+\_\+button\+\_\+novo} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão de começar o mesmo nível. Este botão faz com que seja ativada a ajuda de começar o mesmo nível. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_affbe28f6b0da84597cbae4c14c363d1f}{print\+\_\+button\+\_\+novo\+\_\+jogo} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função para imprimir o botão de começar o jogo de novo. Este botão faz com que seja inicializado o jogo. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a7ee7937ac06730c463a558602a00d765}{mata} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que mata os inimigos recorrendo à ajuda da faca e da poção. A função faz o link a todos os inimigos para que o jogador possa escolher o que pretende matar. Esta percorre o array dos inimigos e elimina o escolhido do array e consequentemente diminui o número de inimigos existentes. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_ad40888bb58e9f67ca9b833804c1cda2e}{no\+\_\+raio} (int a, int b, int c, int d)
+\begin{DoxyCompactList}\small\item\em Função que vê se há inimigos à distância de duas casas do jogador. \end{DoxyCompactList}\item 
+\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} \hyperlink{parser_8c_a7b5b023ad7cc7ced2d12f01423134275}{mata\+\_\+bomba} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que mata os inimigos com a bomba. A função mata os inimigos que se encontram no raio de ação da bomba. Esta percorre o array dos inimigos e elimina-\/os do array e consequentemente diminui o número de inimigos existentes. De seguida, retiramos a possibilidade de se voltar a usar a bomba. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_ae8d40d4adde7993c44e042ac333aa807}{ilumina} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que prevê para onde vão os inimigos na jogada seguinte e imprime-\/os. De acordo com a estratégia definida para o movimento dos inimigos na função move\+\_\+monster, imprime o seu movimento. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_a4c203640f8e4eb93ab49245cbcb049da}{zona\+\_\+goal} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int a, int b)
+\begin{DoxyCompactList}\small\item\em Função que vê se o jogador, na posição em que se encontra, consegue chegar ao objetivo, que é a porta que dá acesso ao nível seguinte. \end{DoxyCompactList}\item 
+\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} \hyperlink{parser_8c_a9588ffbf1428680016b59752602b6466}{jogauto} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que permite que o jogador seja automático, isto é, jogue sozinho. A estratégia utilizada para mover o jogador automaticamente é a seguinte\+: inicialmente, verifica-\/se se é possível o movimento de duas casas para cima e na hipótese de o ser, averigua-\/se se há inimigos nesse local, se houver é necessário eliminá-\/lo. Caso não haja, efetua-\/se o movimento do jogador e dos inimigos. Caso não seja possível o movimento, implementamos a estratégia anterior para os seguintes deslocamentos\+: vertical de uma casa, diagonal de uma casa no sentido da esquerda, diagonal de uma casa no sentido da direita, uma casa na horizontal para a direita e uma casa na horizontal para a esquerda, por esta ordem. Caso o jogador se encontre numa posição que o permita movimentar-\/se diretamente para o objetivo, este efetua a passagem de nível. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a33489b6b5c23526c919eb5d1f2bc5d14}{print\+\_\+sangue} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que imprime o sangue em cima do jogador quando este morre. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a1077a38cfd886806e790bf11d1fb38bc}{print\+\_\+faca} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que imprime a faca no tabuleiro. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a36d10e2d84b24c2142a725a6532b05b4}{print\+\_\+explosao} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que imprime a bomba no tabuleiro. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_ac9b3f87de4ea09dbe85f6a9cd337eca8}{print\+\_\+pocao} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que imprime a pocao no tabuleiro. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a862fb5bafdf26bb938e87c37bd389719}{print\+\_\+novo} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que imprime a ajuda, que consiste em iniciar de novo o mesmo nível, no tabuleiro. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_afac22f987f0c09cd0b47e08a792fa21c}{print\+\_\+move} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e, int d\+X, int d\+Y)
+\begin{DoxyCompactList}\small\item\em Função coordena as ações do jogo. Inicialmente verifica se a ajuda que ilumina as casas atacadas pelos inimigos está ativa e se o seu score é múltiplo de 5, se tal se suceder invoca a função ilumina. Se a ajuda requerida for a de pathfinding e o valor do score for divisível por 8, então recorre à função path. Na hipótese do jogador ter conquistado um ataque à distância e ter apelado à ajuda relativa, é acionada a função mata. Caso o rato pretenda movimentar-\/se para o queijo, é iniciado um novo nível. Sempre que o jogador pretende mover-\/se para uma casa que contém uma ajuda, este passa a adquiri-\/la. Dependendo do nível em que este se encontra, a ajuda é diferente. Caso o jogador pretenda se movimentar para um local com um inimigo, esse é morto e consequentemente eliminado do array. Note-\/se que o jogador apenas efetua um movimento se este for válido, dentro do tabuleiro. E além disso, dá-\/se o movimento dos inimigos, segundo a função move\+\_\+monster, aquando do movimento do jogador. Se o jogador e um inimigo se movimentarem para a mesma posição, dá-\/se a morte do jogador e termina o jogo. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a2ab6d9f5888d53dc703861da4aaf5683}{print\+\_\+player} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que permite ao jogador deslocar-\/se uma casa. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a63bb96821a78ff82084843b9efd4f8e1}{print\+\_\+enemies} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que imprime os inimigos no ecrã. \end{DoxyCompactList}\item 
+void \hyperlink{parser_8c_a223df6d5d95a9a235f04b505c07140f0}{print\+\_\+walls} (\hyperlink{estado_8h_a857f2529d823a22e6f4a81cf21fb810f}{E\+S\+T\+A\+D\+O} e)
+\begin{DoxyCompactList}\small\item\em Função que imprime os obstáculos no ecrã. \end{DoxyCompactList}\item 
+\hypertarget{parser_8c_a7b681d7bcf8f49d08bed8f7cca7ad05d}{void \hyperlink{parser_8c_a7b681d7bcf8f49d08bed8f7cca7ad05d}{print\+\_\+bonus1} ()}\label{parser_8c_a7b681d7bcf8f49d08bed8f7cca7ad05d}
+
+\begin{DoxyCompactList}\small\item\em Função que imprime a imagem do bónus do path no ecrã. \end{DoxyCompactList}\item 
+\hypertarget{parser_8c_a6bab3fb2a55f780513ed63655af16de7}{void \hyperlink{parser_8c_a6bab3fb2a55f780513ed63655af16de7}{print\+\_\+bonus2} ()}\label{parser_8c_a6bab3fb2a55f780513ed63655af16de7}
+
+\begin{DoxyCompactList}\small\item\em Função que imprime a imagem do bónus do ilumina os gatos no ecrã. \end{DoxyCompactList}\item 
+\hypertarget{parser_8c_a5e693d11665f2d739d9a0f8b4bddc6ad}{void \hyperlink{parser_8c_a5e693d11665f2d739d9a0f8b4bddc6ad}{print\+\_\+bonus3} ()}\label{parser_8c_a5e693d11665f2d739d9a0f8b4bddc6ad}
+
+\begin{DoxyCompactList}\small\item\em Função que imprime a imagem do bónus do automático no ecrã. \end{DoxyCompactList}\item 
+\hypertarget{parser_8c_abbb46faef7390f85ad76868944abcf20}{void \hyperlink{parser_8c_abbb46faef7390f85ad76868944abcf20}{print\+\_\+score} ()}\label{parser_8c_abbb46faef7390f85ad76868944abcf20}
+
+\begin{DoxyCompactList}\small\item\em Função que imprime a imagem do score no ecrã. \end{DoxyCompactList}\item 
+int \hyperlink{parser_8c_a36257abf069b0cd29ae1876ce09b8d04}{gera\+\_\+numeros} ()
+\begin{DoxyCompactList}\small\item\em Função que gera números aleatórios, entre 0 e S\+I\+Z\+E-\/1 inclusive. \end{DoxyCompactList}\item 
+\hypertarget{parser_8c_ad7c704b34912678d95c13243cacf9d7f}{void \hyperlink{parser_8c_ad7c704b34912678d95c13243cacf9d7f}{parse} ()}\label{parser_8c_ad7c704b34912678d95c13243cacf9d7f}
+
+\begin{DoxyCompactList}\small\item\em Função principal. Na hipótese de o jogador pretender movimentar-\/se para o localdo objetivo, ou seja, caso em que a ação toma o valor de 1, inicia-\/se o nível seguinte, pelo que se incrementa o valor deste. Se o botão destinado a iniciar o jogo for acionado, o que equivale a que o valor de ação é 2, inicializa-\/se o jogo, pelo que o nível torna a ser zero. Sempre que jogador obtém e requer a ajuda de inicilizar o mesmo nível, invocamos a função inicializar sendo o valor do nível o mesmo. Na condição do jogador automático e do score ser múltiplo de 11, é solicitada a função jogauto. Quando o rato adquire a ajuda da bomba e a aciona, é chamada a função mata\+\_\+bomba. Os bónus são imprimidos de acordo com o score do jogador. Nesta função, são imprimidos todos os compenentes do jogo. Além disso, são requeridas as funções responsáveis pelos movimentos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definição das funções que implementam todo o jogo, desde a impressão das componentes do tabuleiro ao movimento do jogador. 
+
+\subsection{Function Documentation}
+\hypertarget{parser_8c_a36257abf069b0cd29ae1876ce09b8d04}{\index{parser.\+c@{parser.\+c}!gera\+\_\+numeros@{gera\+\_\+numeros}}
+\index{gera\+\_\+numeros@{gera\+\_\+numeros}!parser.\+c@{parser.\+c}}
+\subsubsection[{gera\+\_\+numeros}]{\setlength{\rightskip}{0pt plus 5cm}int gera\+\_\+numeros (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a36257abf069b0cd29ae1876ce09b8d04}
+
+
+Função que gera números aleatórios, entre 0 e S\+I\+Z\+E-\/1 inclusive. 
+
+\begin{DoxyReturn}{Returns}
+r,um inteiro, escolhido aleatoriamente. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_ae8d40d4adde7993c44e042ac333aa807}{\index{parser.\+c@{parser.\+c}!ilumina@{ilumina}}
+\index{ilumina@{ilumina}!parser.\+c@{parser.\+c}}
+\subsubsection[{ilumina}]{\setlength{\rightskip}{0pt plus 5cm}void ilumina (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_ae8d40d4adde7993c44e042ac333aa807}
+
+
+Função que prevê para onde vão os inimigos na jogada seguinte e imprime-\/os. De acordo com a estratégia definida para o movimento dos inimigos na função move\+\_\+monster, imprime o seu movimento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para obtermos a informação relativa aos inimigos. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a19be29f3769d4d77b3af18d39a40735a}{\index{parser.\+c@{parser.\+c}!inicializar@{inicializar}}
+\index{inicializar@{inicializar}!parser.\+c@{parser.\+c}}
+\subsubsection[{inicializar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+S\+T\+A\+D\+O} inicializar (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a19be29f3769d4d77b3af18d39a40735a}
+
+
+Função que inicializa o jogo. Esta define as posicões iniciais do jogador, do objetivo, dos inimigos, dos obstáculos e das ajudas, sendo que estes três últimos são gerados aleatoriamente, para obtermos tabuleiros diferentes. Também fica estipulado que todas as restantes características se iniciam a zero, dado que são alteradas pelo decorrer do jogo. É importante realçar o facto de o número de obstáculos e inimigos aumentar com o nível, que corresponde ao parâmetro n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n,inteiro} & que indica o nível em que se encontra o jogo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+e, estado do jogo. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_a9588ffbf1428680016b59752602b6466}{\index{parser.\+c@{parser.\+c}!jogauto@{jogauto}}
+\index{jogauto@{jogauto}!parser.\+c@{parser.\+c}}
+\subsubsection[{jogauto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+S\+T\+A\+D\+O} jogauto (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a9588ffbf1428680016b59752602b6466}
+
+
+Função que permite que o jogador seja automático, isto é, jogue sozinho. A estratégia utilizada para mover o jogador automaticamente é a seguinte\+: inicialmente, verifica-\/se se é possível o movimento de duas casas para cima e na hipótese de o ser, averigua-\/se se há inimigos nesse local, se houver é necessário eliminá-\/lo. Caso não haja, efetua-\/se o movimento do jogador e dos inimigos. Caso não seja possível o movimento, implementamos a estratégia anterior para os seguintes deslocamentos\+: vertical de uma casa, diagonal de uma casa no sentido da esquerda, diagonal de uma casa no sentido da direita, uma casa na horizontal para a direita e uma casa na horizontal para a esquerda, por esta ordem. Caso o jogador se encontre numa posição que o permita movimentar-\/se diretamente para o objetivo, este efetua a passagem de nível. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ne, novo estado, resultante do movimento automático do jogador. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_a7ee7937ac06730c463a558602a00d765}{\index{parser.\+c@{parser.\+c}!mata@{mata}}
+\index{mata@{mata}!parser.\+c@{parser.\+c}}
+\subsubsection[{mata}]{\setlength{\rightskip}{0pt plus 5cm}void mata (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a7ee7937ac06730c463a558602a00d765}
+
+
+Função que mata os inimigos recorrendo à ajuda da faca e da poção. A função faz o link a todos os inimigos para que o jogador possa escolher o que pretende matar. Esta percorre o array dos inimigos e elimina o escolhido do array e consequentemente diminui o número de inimigos existentes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para adquirir a informação relativa aos inimigos. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a7b5b023ad7cc7ced2d12f01423134275}{\index{parser.\+c@{parser.\+c}!mata\+\_\+bomba@{mata\+\_\+bomba}}
+\index{mata\+\_\+bomba@{mata\+\_\+bomba}!parser.\+c@{parser.\+c}}
+\subsubsection[{mata\+\_\+bomba}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+S\+T\+A\+D\+O} mata\+\_\+bomba (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a7b5b023ad7cc7ced2d12f01423134275}
+
+
+Função que mata os inimigos com a bomba. A função mata os inimigos que se encontram no raio de ação da bomba. Esta percorre o array dos inimigos e elimina-\/os do array e consequentemente diminui o número de inimigos existentes. De seguida, retiramos a possibilidade de se voltar a usar a bomba. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para adquirir a informação relativa aos inimigos e ao jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+e, estado, resultante de matar os inimigos no raio de ação da bomba. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_a6edfe79de74b805e25fd125ae324bb71}{\index{parser.\+c@{parser.\+c}!mata\+\_\+monster@{mata\+\_\+monster}}
+\index{mata\+\_\+monster@{mata\+\_\+monster}!parser.\+c@{parser.\+c}}
+\subsubsection[{mata\+\_\+monster}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+S\+T\+A\+D\+O} mata\+\_\+monster (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{a, }
+\item[{int}]{b}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a6edfe79de74b805e25fd125ae324bb71}
+
+
+Função que mata os monstros sem recorrer a ajudas. Esta percorre o array dos inimigos e verifica se algum se encontra na posição para onde o rato pretende ir. Se tal se suceder, irá eliminá-\/lo do array e consequentemente diminuir o número de inimigos existentes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para adquirir a informação relativa aos inimigos. \\
+\hline
+{\em a,coordenada} & x para onde o jogador se pretende movimentar. \\
+\hline
+{\em b,coordenada} & y para onde o jogador pretende ir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ne, novo estado, que elimina do estado anterior o inimigo que foi morto pelo jogador. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_aa8c33be36f06248ba046afc6f84ea9de}{\index{parser.\+c@{parser.\+c}!move\+\_\+monster@{move\+\_\+monster}}
+\index{move\+\_\+monster@{move\+\_\+monster}!parser.\+c@{parser.\+c}}
+\subsubsection[{move\+\_\+monster}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\+S\+T\+A\+D\+O} move\+\_\+monster (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_aa8c33be36f06248ba046afc6f84ea9de}
+
+
+Função para mover os inimigos. O movimento dos inimigos segue a seguinte estratégia\+: caso estes se encontrem na linha do objetivo estes deslocam-\/se no sentido do queijo; sempre que estejam no canto superior esquerdo efetuam o movimento diagonal no sentido do queijo, no entanto, apenas iniciam o deslocamento quando o jogador se encontra cinco linhas acima da posição inicial; na hipótese de o inimigo se apresentar no canto superior direito e o jogador a cinco linhas acima do início efetuam o movimento diagonal no sentido do queijo; se estiverem na última linha do tabuleiro e o jogador na parte inferior do tabuleiro iram mover-\/se na diagonal no sentido da coluna do jogador; quando os inimigos estão no canto inferior esquerdo e o jogador nas ultimas cinco linhas, dirigem-\/se na diagonal no sentido da coluna do rato; por último, estes deslocam-\/se na diagonal no sentido da coluna do jogador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ne, novo estado do jogo, que apenas são alteradas as coordenadas dos inimigos relativamente ao estado anterior. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_ad40888bb58e9f67ca9b833804c1cda2e}{\index{parser.\+c@{parser.\+c}!no\+\_\+raio@{no\+\_\+raio}}
+\index{no\+\_\+raio@{no\+\_\+raio}!parser.\+c@{parser.\+c}}
+\subsubsection[{no\+\_\+raio}]{\setlength{\rightskip}{0pt plus 5cm}int no\+\_\+raio (
+\begin{DoxyParamCaption}
+\item[{int}]{a, }
+\item[{int}]{b, }
+\item[{int}]{c, }
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_ad40888bb58e9f67ca9b833804c1cda2e}
+
+
+Função que vê se há inimigos à distância de duas casas do jogador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a,coordenada} & x do jogador. \\
+\hline
+{\em b,coordenada} & y do jogador. \\
+\hline
+{\em c,coordenada} & x do inimigo. \\
+\hline
+{\em d,coordenada} & y do inimigo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se existir ou 0 se não existir. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_a559acd5a7f86d1f63a42ca54e7e0e648}{\index{parser.\+c@{parser.\+c}!ocupado@{ocupado}}
+\index{ocupado@{ocupado}!parser.\+c@{parser.\+c}}
+\subsubsection[{ocupado}]{\setlength{\rightskip}{0pt plus 5cm}int ocupado (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{a, }
+\item[{int}]{b}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a559acd5a7f86d1f63a42ca54e7e0e648}
+
+
+Função que vê se nas coordenadas para onde o jogador pretende ir se encontra um inimigo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para obter as posições dos inimigos. \\
+\hline
+{\em a,coordenada} & x para a qual o rato pretende movimentar-\/se, para verificar se há um inimigo nesse local, no entanto, para tal é necessário complementar com a informação do parâmetro y. \\
+\hline
+{\em b,coordenada} & y, para a qual o rato pretende movimentar-\/se. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se estiver um inimigo ou 0 se não estiver. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_ac421ba515c251c7a23fdb86dcc75ca31}{\index{parser.\+c@{parser.\+c}!path@{path}}
+\index{path@{path}!parser.\+c@{parser.\+c}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}void path (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_ac421ba515c251c7a23fdb86dcc75ca31}
+
+
+Função para fazer o pathfinding. A estratégia utilizada para mover o jogador segundo o melhor caminho é a seguinte\+: inicialmente, verifica-\/se se é possível o movimento de duas casas para cima e na hipótese de o ser, averigua-\/se se há inimigos nesse local, se houver é necessário eliminá-\/lo. Caso não haja, efetua-\/se o movimento do jogador e dos inimigos. Caso não seja possível o movimento, implementamos a estratégia anterior para os seguintes deslocamentos\+: vertical de uma casa, diagonal de uma casa no sentido da esquerda, diagonal de uma casa no sentido da direita, uma casa horizontal para a direita e uma casa na horizontal para a esquerda, por esta ordem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_aeb844d48100320909072ca2ef9369af4}{\index{parser.\+c@{parser.\+c}!print\+\_\+button\+\_\+auto@{print\+\_\+button\+\_\+auto}}
+\index{print\+\_\+button\+\_\+auto@{print\+\_\+button\+\_\+auto}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+button\+\_\+auto}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+button\+\_\+auto (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_aeb844d48100320909072ca2ef9369af4}
+
+
+Função para imprimir o botão do jogador automático. Este botão faz com que seja ativada a ajuda do jagador automático. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a0504c2d1f0c21f466587c2b724604944}{\index{parser.\+c@{parser.\+c}!print\+\_\+button\+\_\+explosao@{print\+\_\+button\+\_\+explosao}}
+\index{print\+\_\+button\+\_\+explosao@{print\+\_\+button\+\_\+explosao}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+button\+\_\+explosao}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+button\+\_\+explosao (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a0504c2d1f0c21f466587c2b724604944}
+
+
+Função para imprimir o botão da bomba. Este botão faz com que seja ativada a possibilidade de matar com a bomba. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a21f0b301a92340018151717d19bd6f71}{\index{parser.\+c@{parser.\+c}!print\+\_\+button\+\_\+faca@{print\+\_\+button\+\_\+faca}}
+\index{print\+\_\+button\+\_\+faca@{print\+\_\+button\+\_\+faca}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+button\+\_\+faca}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+button\+\_\+faca (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a21f0b301a92340018151717d19bd6f71}
+
+
+Função para imprimir o botão da faca. Este botão faz com que seja ativada a possibilidade de matar com a faca. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a5d81cb91908a6c15e66f865ec4c6c265}{\index{parser.\+c@{parser.\+c}!print\+\_\+button\+\_\+monstro@{print\+\_\+button\+\_\+monstro}}
+\index{print\+\_\+button\+\_\+monstro@{print\+\_\+button\+\_\+monstro}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+button\+\_\+monstro}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+button\+\_\+monstro (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a5d81cb91908a6c15e66f865ec4c6c265}
+
+
+Função para imprimir o botão de iluminar as casas atacadas pelos monstros. Este botão faz com que seja ativada a ajuda de iluminar as casas atacadas pelos monstros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a7be73abad1beb74aa02254251f478bbc}{\index{parser.\+c@{parser.\+c}!print\+\_\+button\+\_\+novo@{print\+\_\+button\+\_\+novo}}
+\index{print\+\_\+button\+\_\+novo@{print\+\_\+button\+\_\+novo}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+button\+\_\+novo}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+button\+\_\+novo (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a7be73abad1beb74aa02254251f478bbc}
+
+
+Função para imprimir o botão de começar o mesmo nível. Este botão faz com que seja ativada a ajuda de começar o mesmo nível. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_affbe28f6b0da84597cbae4c14c363d1f}{\index{parser.\+c@{parser.\+c}!print\+\_\+button\+\_\+novo\+\_\+jogo@{print\+\_\+button\+\_\+novo\+\_\+jogo}}
+\index{print\+\_\+button\+\_\+novo\+\_\+jogo@{print\+\_\+button\+\_\+novo\+\_\+jogo}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+button\+\_\+novo\+\_\+jogo}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+button\+\_\+novo\+\_\+jogo (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_affbe28f6b0da84597cbae4c14c363d1f}
+
+
+Função para imprimir o botão de começar o jogo de novo. Este botão faz com que seja inicializado o jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_aa0ba009f7c1ef0f22877ef162aadbfb5}{\index{parser.\+c@{parser.\+c}!print\+\_\+button\+\_\+pocao@{print\+\_\+button\+\_\+pocao}}
+\index{print\+\_\+button\+\_\+pocao@{print\+\_\+button\+\_\+pocao}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+button\+\_\+pocao}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+button\+\_\+pocao (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_aa0ba009f7c1ef0f22877ef162aadbfb5}
+
+
+Função para imprimir o botão da poção. Este botão faz com que seja ativada a possibilidade de matar com a poção. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a63bb96821a78ff82084843b9efd4f8e1}{\index{parser.\+c@{parser.\+c}!print\+\_\+enemies@{print\+\_\+enemies}}
+\index{print\+\_\+enemies@{print\+\_\+enemies}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+enemies}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+enemies (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a63bb96821a78ff82084843b9efd4f8e1}
+
+
+Função que imprime os inimigos no ecrã. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, adquirir a informação relativa aos inimigos. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a36d10e2d84b24c2142a725a6532b05b4}{\index{parser.\+c@{parser.\+c}!print\+\_\+explosao@{print\+\_\+explosao}}
+\index{print\+\_\+explosao@{print\+\_\+explosao}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+explosao}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+explosao (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a36d10e2d84b24c2142a725a6532b05b4}
+
+
+Função que imprime a bomba no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para possuir a informação relativa à ajuda. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a1077a38cfd886806e790bf11d1fb38bc}{\index{parser.\+c@{parser.\+c}!print\+\_\+faca@{print\+\_\+faca}}
+\index{print\+\_\+faca@{print\+\_\+faca}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+faca}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+faca (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a1077a38cfd886806e790bf11d1fb38bc}
+
+
+Função que imprime a faca no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para possuir a informação relativa à ajuda. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a3e6d62f9e963e55d5ba7c3339c232fae}{\index{parser.\+c@{parser.\+c}!print\+\_\+goal@{print\+\_\+goal}}
+\index{print\+\_\+goal@{print\+\_\+goal}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+goal}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+goal (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a3e6d62f9e963e55d5ba7c3339c232fae}
+
+
+Função para imprimir a porta de saída que dá acesso ao nível seguinte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para dispor as coordenadas do objetivo. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_abfff3bbb47728568bedc2a7ba3d2146e}{\index{parser.\+c@{parser.\+c}!print\+\_\+image@{print\+\_\+image}}
+\index{print\+\_\+image@{print\+\_\+image}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+image}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+image (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{tam, }
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_abfff3bbb47728568bedc2a7ba3d2146e}
+
+
+Função para imprimir as imagens. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x,coluna} & em que vai ficar. \\
+\hline
+{\em y,linha} & em que vai ficar. \\
+\hline
+{\em tam,é} & o tamanho máximo que a imagem vai ter. \\
+\hline
+{\em $\ast$name,nome} & da imagem, que permite obter o link da imagem a imprimir. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_afac22f987f0c09cd0b47e08a792fa21c}{\index{parser.\+c@{parser.\+c}!print\+\_\+move@{print\+\_\+move}}
+\index{print\+\_\+move@{print\+\_\+move}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+move}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+move (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{d\+X, }
+\item[{int}]{d\+Y}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_afac22f987f0c09cd0b47e08a792fa21c}
+
+
+Função coordena as ações do jogo. Inicialmente verifica se a ajuda que ilumina as casas atacadas pelos inimigos está ativa e se o seu score é múltiplo de 5, se tal se suceder invoca a função ilumina. Se a ajuda requerida for a de pathfinding e o valor do score for divisível por 8, então recorre à função path. Na hipótese do jogador ter conquistado um ataque à distância e ter apelado à ajuda relativa, é acionada a função mata. Caso o rato pretenda movimentar-\/se para o queijo, é iniciado um novo nível. Sempre que o jogador pretende mover-\/se para uma casa que contém uma ajuda, este passa a adquiri-\/la. Dependendo do nível em que este se encontra, a ajuda é diferente. Caso o jogador pretenda se movimentar para um local com um inimigo, esse é morto e consequentemente eliminado do array. Note-\/se que o jogador apenas efetua um movimento se este for válido, dentro do tabuleiro. E além disso, dá-\/se o movimento dos inimigos, segundo a função move\+\_\+monster, aquando do movimento do jogador. Se o jogador e um inimigo se movimentarem para a mesma posição, dá-\/se a morte do jogador e termina o jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, que possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+{\em d\+X,um} & inteiro, indica o número de casas a movimentar-\/se e o sentido do movimento, relativamente à coordenada x do jogador. \\
+\hline
+{\em d\+Y,um} & inteiro, indica o número de casas a movimentar-\/se e o sentido do movimento, relativamente à coordenada y do jogador. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a862fb5bafdf26bb938e87c37bd389719}{\index{parser.\+c@{parser.\+c}!print\+\_\+novo@{print\+\_\+novo}}
+\index{print\+\_\+novo@{print\+\_\+novo}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+novo}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+novo (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a862fb5bafdf26bb938e87c37bd389719}
+
+
+Função que imprime a ajuda, que consiste em iniciar de novo o mesmo nível, no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para possuir a informação relativa à ajuda. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_ab78ac1791c6f9e5c7fb142aa8b2387c4}{\index{parser.\+c@{parser.\+c}!print\+\_\+pathfinding@{print\+\_\+pathfinding}}
+\index{print\+\_\+pathfinding@{print\+\_\+pathfinding}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+pathfinding}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+pathfinding (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_ab78ac1791c6f9e5c7fb142aa8b2387c4}
+
+
+Função para imprimir o botão do pathfinding. Este botão faz com que seja ativada a ajuda do pathfinding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para o atualizar. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a2ab6d9f5888d53dc703861da4aaf5683}{\index{parser.\+c@{parser.\+c}!print\+\_\+player@{print\+\_\+player}}
+\index{print\+\_\+player@{print\+\_\+player}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+player}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+player (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a2ab6d9f5888d53dc703861da4aaf5683}
+
+
+Função que permite ao jogador deslocar-\/se uma casa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para obtermos a informação relativa ao jogador. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_ac9b3f87de4ea09dbe85f6a9cd337eca8}{\index{parser.\+c@{parser.\+c}!print\+\_\+pocao@{print\+\_\+pocao}}
+\index{print\+\_\+pocao@{print\+\_\+pocao}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+pocao}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+pocao (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_ac9b3f87de4ea09dbe85f6a9cd337eca8}
+
+
+Função que imprime a pocao no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para possuir a informação relativa à ajuda. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a33489b6b5c23526c919eb5d1f2bc5d14}{\index{parser.\+c@{parser.\+c}!print\+\_\+sangue@{print\+\_\+sangue}}
+\index{print\+\_\+sangue@{print\+\_\+sangue}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+sangue}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+sangue (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a33489b6b5c23526c919eb5d1f2bc5d14}
+
+
+Função que imprime o sangue em cima do jogador quando este morre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, permita obter a informação relativa ao jogador. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a0fa7090bb59d0e16788420bdfdb8644c}{\index{parser.\+c@{parser.\+c}!print\+\_\+square@{print\+\_\+square}}
+\index{print\+\_\+square@{print\+\_\+square}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+square}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+square (
+\begin{DoxyParamCaption}
+\item[{int}]{X, }
+\item[{int}]{Y, }
+\item[{int}]{tam}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a0fa7090bb59d0e16788420bdfdb8644c}
+
+
+Função para imprimir os quadrados do tabuleiro do jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em X,coluna.} & \\
+\hline
+{\em Y,linha.} & \\
+\hline
+{\em tam,tamanho} & de cada quadrado. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a223df6d5d95a9a235f04b505c07140f0}{\index{parser.\+c@{parser.\+c}!print\+\_\+walls@{print\+\_\+walls}}
+\index{print\+\_\+walls@{print\+\_\+walls}!parser.\+c@{parser.\+c}}
+\subsubsection[{print\+\_\+walls}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+walls (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a223df6d5d95a9a235f04b505c07140f0}
+
+
+Função que imprime os obstáculos no ecrã. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para receber a informação relativa aos obstáculos. \\
+\hline
+\end{DoxyParams}
+\hypertarget{parser_8c_a872ca970e87c761b084ab705d1deb682}{\index{parser.\+c@{parser.\+c}!scr@{scr}}
+\index{scr@{scr}!parser.\+c@{parser.\+c}}
+\subsubsection[{scr}]{\setlength{\rightskip}{0pt plus 5cm}int scr (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a872ca970e87c761b084ab705d1deb682}
+
+
+Função para obter o score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado,para} & adquirir a informação do score. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+r, inteiro, que contém o valor do score. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_a17b1f13fa1af0de7778f02a5e7409053}{\index{parser.\+c@{parser.\+c}!valido@{valido}}
+\index{valido@{valido}!parser.\+c@{parser.\+c}}
+\subsubsection[{valido}]{\setlength{\rightskip}{0pt plus 5cm}int valido (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{a, }
+\item[{int}]{b}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a17b1f13fa1af0de7778f02a5e7409053}
+
+
+Função que permite verificar se a casa do tabuleiro não está ocupada, de modo a poder lá colocar um inimigo ou um obstáculo ou uma ajuda. O movimento é considerado válido se a posição para a qual o jogador pretende deslocar-\/se não estiver ocupada por um inimigo, um obstáculo, o objetivo ou corresponder ao posicionamento atual do jogador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, que possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+{\em a,coordenada} & x aleatória, para averiguar se é possível alocar algum do elementos referidos anteriormente, no entanto, para tal é necessário complementar com a informação do parâmetro b. \\
+\hline
+{\em b,coordenada} & y aleatória. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 se a posição não for válido ou 1 caso contrário. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_afb9bc83fb6983d7de2d4243d726cae93}{\index{parser.\+c@{parser.\+c}!valido2@{valido2}}
+\index{valido2@{valido2}!parser.\+c@{parser.\+c}}
+\subsubsection[{valido2}]{\setlength{\rightskip}{0pt plus 5cm}int valido2 (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{a, }
+\item[{int}]{b}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_afb9bc83fb6983d7de2d4243d726cae93}
+
+
+Função que permite verificar se o jogador se pode movimentar. O movimento é considerado válido se a posição para a qual o jogador pretende deslocar-\/se não estiver ocupada por um inimigo, um obstáculo, ou corresponder ao posicionamento atual do jogador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, que possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+{\em a,coordenada} & x para onde o jogador pretende ir, para averiguar se é válido o movimento, no entanto, para tal é necessário complementar com a informação do parâmetro b. \\
+\hline
+{\em b,coordenada} & y para onde o jogador pretende ir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 se a posição não for válida ou 1 caso contrário. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_af763247ed37f68bd99cf0c0e2bc70abf}{\index{parser.\+c@{parser.\+c}!valido3@{valido3}}
+\index{valido3@{valido3}!parser.\+c@{parser.\+c}}
+\subsubsection[{valido3}]{\setlength{\rightskip}{0pt plus 5cm}int valido3 (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{a, }
+\item[{int}]{b}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_af763247ed37f68bd99cf0c0e2bc70abf}
+
+
+Função que conclui se o movimento dos inimigos é possível. É considerado realizável caso na posição para onde pretende movimentar-\/se não se encontre um obstáculo, o jogador, o objetivo, uma ajuda ou um inimigo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+{\em a,coordenada} & x para onde o inimigo pretende ir, para averiguar se é válido o movimento, no entanto, para tal é necessário complementar com a informação do parâmetro b. \\
+\hline
+{\em b,coordenada} & y para onde o inimigo pretende dirigir-\/se. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 se o movimento não for concebível ou 1 caso contrário. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_a0d226da7c83bdef361e87cdaffdd758e}{\index{parser.\+c@{parser.\+c}!valido4@{valido4}}
+\index{valido4@{valido4}!parser.\+c@{parser.\+c}}
+\subsubsection[{valido4}]{\setlength{\rightskip}{0pt plus 5cm}int valido4 (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{dx, }
+\item[{int}]{dy}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a0d226da7c83bdef361e87cdaffdd758e}
+
+
+Função que apura se o deslocamento do jogador é possível e também se nenhum inimigo se irá mover para o mesmo local. É admissível caso não pretenda deslocar-\/se para um local onde se encontre um inimigo, um obstáculo, uma ajuda, o objetivo ou o um inimgo pretenda movimentar-\/se para a mesma casa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, possibilita conhecer as posições das componentes do tabuleiro. \\
+\hline
+{\em dx,coordenada} & dx para onde o jogador pretende ir, para averiguar se é válido o movimento, no entanto, para tal é necessário complementar com a informação do parâmetro dx. \\
+\hline
+{\em dy,coordenada} & dy para onde o jogador pretende ir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 caso a posição não seja válido ou 1 caso contrário. 
+\end{DoxyReturn}
+\hypertarget{parser_8c_a4c203640f8e4eb93ab49245cbcb049da}{\index{parser.\+c@{parser.\+c}!zona\+\_\+goal@{zona\+\_\+goal}}
+\index{zona\+\_\+goal@{zona\+\_\+goal}!parser.\+c@{parser.\+c}}
+\subsubsection[{zona\+\_\+goal}]{\setlength{\rightskip}{0pt plus 5cm}int zona\+\_\+goal (
+\begin{DoxyParamCaption}
+\item[{{\bf E\+S\+T\+A\+D\+O}}]{e, }
+\item[{int}]{a, }
+\item[{int}]{b}
+\end{DoxyParamCaption}
+)}}\label{parser_8c_a4c203640f8e4eb93ab49245cbcb049da}
+
+
+Função que vê se o jogador, na posição em que se encontra, consegue chegar ao objetivo, que é a porta que dá acesso ao nível seguinte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e,estado} & do jogo, para obter a informação do objetivo. \\
+\hline
+{\em a,coordenada} & x onde está o jogador. \\
+\hline
+{\em b,coordenada} & y onde está o jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se alcançar o objetivo ou 0 caso contrário. 
+\end{DoxyReturn}
